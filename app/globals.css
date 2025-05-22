@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 30 20% 95%;
+    --foreground: 20 14.3% 4.1%;
+    --card: 0 0% 100%;
+    --card-foreground: 20 14.3% 4.1%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 14.3% 4.1%;
+    --primary: 24.6 95% 53.1%;
+    --primary-foreground: 60 9.1% 97.8%;
+    --secondary: 60 4.8% 95.9%;
+    --secondary-foreground: 24 9.8% 10%;
+    --muted: 60 4.8% 95.9%;
+    --muted-foreground: 25 5.3% 44.7%;
+    --accent: 60 4.8% 95.9%;
+    --accent-foreground: 24 9.8% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 60 9.1% 97.8%;
+    --border: 20 5.9% 90%;
+    --input: 20 5.9% 90%;
+    --ring: 24.6 95% 53.1%;
+    --radius: 1.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-inter;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-playfair;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-orange-100/90 backdrop-blur-md border border-orange-500/20 shadow-lg rounded-2xl;
+  }
+
+  .glass-input {
+    @apply bg-white/90 border-orange-500/20 focus:border-orange-500/50 focus:ring-orange-500/25 rounded-xl;
+  }
+
+  .nav-item {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl text-gray-600 hover:text-orange-500 transition-colors;
+  }
+
+  .nav-item.active {
+    @apply bg-orange-500/10 text-orange-500;
+  }
+
+  .button-primary {
+    @apply bg-orange-500 text-white hover:bg-orange-600 transition-colors;
+  }
+
+  .heading-xl {
+    @apply font-playfair text-4xl md:text-5xl font-bold text-orange-600 tracking-tight leading-tight;
+  }
+
+  .heading-lg {
+    @apply font-playfair text-3xl font-bold text-orange-600 tracking-tight;
+  }
+
+  .heading-md {
+    @apply font-playfair text-2xl font-bold text-orange-600;
+  }
+
+  .heading-sm {
+    @apply font-playfair text-xl font-semibold text-orange-600;
+  }
+}
+
+.font-inter {
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+.font-playfair {
+  font-family: var(--font-playfair), Georgia, serif;
+}
+
+@responsive {
+  .text-responsive {
+    @apply text-base sm:text-lg md:text-xl lg:text-2xl;
+  }
+}
