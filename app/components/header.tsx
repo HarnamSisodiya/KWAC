@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 
 const Header = () => {
   return (
@@ -10,16 +11,13 @@ const Header = () => {
           {/* Left-aligned logo */}
           <Link href="/" className="flex-shrink-0 mb-4 md:mb-0">
             <div className="glass-card p-2">
-              <img
+              <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/KWAC_Logo_Transparent_1.PNG-jCnOxuHpqrnvIS91XPI2RgzyPNsl0H.png"
                 alt="KWAC Logo"
                 width={100}
                 height={100}
                 className="rounded-full"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement
-                  target.src = "/placeholder.svg?height=100&width=100&text=KWAC"
-                }}
+                priority
               />
             </div>
           </Link>

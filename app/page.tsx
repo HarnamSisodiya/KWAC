@@ -1,4 +1,7 @@
+"use client"
+
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
@@ -31,14 +34,13 @@ export default function Home() {
           </div>
           <div className="md:w-1/2 flex justify-center">
             <div className="glass-card overflow-hidden p-8 flex items-center justify-center max-w-md">
-              <img
+              <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/KWAC_Logo_Transparent_1.PNG-jCnOxuHpqrnvIS91XPI2RgzyPNsl0H.png"
                 alt="Kshatriya Welfare Association Logo"
+                width={350}
+                height={350}
                 className="w-auto h-auto max-h-[350px]"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement
-                  target.src = "/placeholder.svg?height=350&width=350&text=KWAC+Logo"
-                }}
+                priority
               />
             </div>
           </div>
