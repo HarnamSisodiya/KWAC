@@ -32,6 +32,7 @@ export default function Events() {
     })
   }
 
+
   const handleMaharanaPratapRegistration = () => {
     alert("It is past event")
   }
