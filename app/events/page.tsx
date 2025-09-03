@@ -34,13 +34,13 @@ export default function Events() {
 
   const handleMaharanaPratapRegistration = () => {
     // For Maharana Pratap Jayanti - email registration
-    //handleEmailRegister("Maharana Pratap Jayanti")
+    // handleEmailRegister("Maharana Pratap Jayanti")
     alert("It is past event")
-  } 
+  }
 
   const handlePicnicRegistration = () => {
     // For Annual KWAC Picnic - email registration
-    //handleEmailRegister("Annual KWAC Picnic!")
+    // handleEmailRegister("Annual KWAC Picnic!")
     alert("It is past event")
   }
 
@@ -68,9 +68,7 @@ export default function Events() {
       title: "Vijay Dashmi Shastra Pujan with KWAC!",
       date: "Oct 4, 2025",
       description:
-        "Join us on October 4th as we come together for the auspicious Shastra Pujan ceremony to honor our traditions and values. Let us celebrate this meaningful occasion with devotion, unity, and pride. All members of the KWAC community are welcome!
-           
-        After registration, eTransfer money to KWAFUND@gmail.com",
+        "Join us on October 4th as we come together for the auspicious Shastra Pujan ceremony to honor our traditions and values. Let us celebrate this meaningful occasion with devotion, unity, and pride. All members of the KWAC community are welcome! After registration, eTransfer money to KWAFUND@gmail.com",
       onRegister: handleVijayDashmiRegistration,
     },
   ]
