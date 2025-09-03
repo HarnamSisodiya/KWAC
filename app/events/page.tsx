@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { useToast } from "@/hooks/use-toast"
-import { Mail } from "lucide-react"
+import { Mail, MapPin } from "lucide-react"
 
 export default function Events() {
   const { toast } = useToast()
@@ -62,8 +62,8 @@ export default function Events() {
     {
       title: "Vijay Dashmi Shastra Pujan with KWAC!",
       date: "Oct 4, 2025",
-      Location: "Panemonte Banquet & Convention Centre ",
-      Address: "220 Humberline Dr, Etobicoke, ON M9W 5Y4",
+      location: "Panemonte Banquet & Convention Centre",
+      address: "220 Humberline Dr, Etobicoke, ON M9W 5Y4",
       description:
         "Join us on October 4th as we come together for the auspicious Shastra Pujan ceremony to honor our traditions and values. Let us celebrate this meaningful occasion with devotion, unity, and pride. All members of the KWAC community are welcome!",
       paymentInfo:
@@ -83,6 +83,15 @@ export default function Events() {
               <CardHeader>
                 <CardTitle className="heading-sm">{event.title}</CardTitle>
                 <CardDescription className="text-gray-600 font-medium">{event.date}</CardDescription>
+                {event.location && (
+                  <div className="flex items-start gap-2 mt-2">
+                    <MapPin className="h-4 w-4 text-orange-500 mt-0.5 flex-shrink-0" />
+                    <div className="text-sm text-gray-600">
+                      <div className="font-medium">{event.location}</div>
+                      <div>{event.address}</div>
+                    </div>
+                  </div>
+                )}
               </CardHeader>
               <CardContent className="flex-grow">
                 <p className="text-gray-700 leading-relaxed mb-4">{event.description}</p>
