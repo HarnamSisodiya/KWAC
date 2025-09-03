@@ -8,7 +8,7 @@ import { Mail } from "lucide-react"
 export default function Events() {
   const { toast } = useToast()
 
-  const handleRegister = (eventTitle: string) => {
+  const handleEmailRegister = (eventTitle: string) => {
     toast({
       title: "Registration Information",
       description: (
@@ -32,32 +32,52 @@ export default function Events() {
     })
   }
 
+  const handleMaharanaPratapRegistration = () => {
+    // For Maharana Pratap Jayanti - email registration
+    handleEmailRegister("Maharana Pratap Jayanti")
+  }
+
+  const handlePicnicRegistration = () => {
+    // For Annual KWAC Picnic - email registration
+    handleEmailRegister("Annual KWAC Picnic!")
+  }
+
+  const handleVijayDashmiRegistration = () => {
+    // For Vijay Dashmi - external link registration
+    window.open("https://tinyurl.com/dussehra2025", "_blank")
+  }
+
+  const events = [
+    {
+      title: "Maharana Pratap Jayanti",
+      date: "May 31, 2025",
+      description:
+        "Let's honor the legacy of Maharana Pratap, a symbol of bravery, resilience, and patriotism. Be a part of this special day as we come together to remember his inspiring contributions and embrace the values he stood for. All are welcome to join this joyous occasion!",
+      onRegister: handleMaharanaPratapRegistration,
+    },
+    {
+      title: "Annual KWAC Picnic!",
+      date: "Jul 26, 2025",
+      description:
+        "Mark your calendars for a day full of fun, food, and community spirit! It's the perfect opportunity to connect, relax, and celebrate together. Everyone is welcome—do not miss out on this wonderful event!",
+      onRegister: handlePicnicRegistration,
+    },
+    {
+      title: "Vijay Dashmi Shastra Pujan with KWAC!",
+      date: "Oct 4, 2025",
+      description:
+        "Join us on October 4th as we come together for the auspicious Shastra Pujan ceremony to honor our traditions and values. Let us celebrate this meaningful occasion with devotion, unity, and pride. All members of the KWAC community are welcome!",
+      onRegister: handleVijayDashmiRegistration,
+    },
+  ]
+
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="heading-xl mb-8">Events</h1>
       <section>
         <h2 className="heading-lg mb-8 text-center">Major Events in 2025</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {[
-            {
-              title: "Maharana Pratap Jayanti",
-              date: "May 31, 2025",
-              description:
-                "Let's honor the legacy of Maharana Pratap, a symbol of bravery, resilience, and patriotism. Be a part of this special day as we come together to remember his inspiring contributions and embrace the values he stood for. All are welcome to join this joyous occasion!",
-            },
-            {
-              title: "Annual KWAC Picnic!",
-              date: "Jul 26, 2025",
-              description:
-                "Mark your calendars for a day full of fun, food, and community spirit! It's the perfect opportunity to connect, relax, and celebrate together. Everyone is welcome—do not miss out on this wonderful event!",
-            },
-            {
-              title: "Vijay Dashmi Shastra Pujan with KWAC!",
-              date: "Oct 4, 2025",
-              description:
-                "Join us on October 4th as we come together for the auspicious Shastra Pujan ceremony to honor our traditions and values. Let us celebrate this meaningful occasion with devotion, unity, and pride. All members of the KWAC community are welcome!",
-            },
-          ].map((event) => (
+          {events.map((event) => (
             <Card key={event.title} className="glass-card h-full flex flex-col">
               <CardHeader>
                 <CardTitle className="heading-sm">{event.title}</CardTitle>
@@ -67,10 +87,7 @@ export default function Events() {
                 <p className="text-gray-700 leading-relaxed">{event.description}</p>
               </CardContent>
               <CardFooter className="pt-2 pb-4">
-                <Button
-                  className="button-primary w-full"
-                  onClick={() => window.open("https://tinyurl.com/dussehra2025", "_blank")}
-                >
+                <Button className="button-primary w-full" onClick={event.onRegister}>
                   Register for this Event
                 </Button>
               </CardFooter>
