@@ -17,10 +17,10 @@ export default function Events() {
           <Button
             variant="outline"
             size="sm"
-            className="mt-2 flex items-center gap-2"
+            className="mt-2 flex items-center gap-2 bg-transparent"
             onClick={() =>
-              (window.location.href ="https://tinyurl.com/dussehra2025"
-               // "mailto:KWAOfCanada@gmail.com?subject=Registration for " + encodeURIComponent(eventTitle))
+              (window.location.href =
+                "mailto:KWAOfCanada@gmail.com?subject=Registration for " + encodeURIComponent(eventTitle))
             }
           >
             <Mail className="h-4 w-4" />
@@ -67,8 +67,11 @@ export default function Events() {
                 <p className="text-gray-700 leading-relaxed">{event.description}</p>
               </CardContent>
               <CardFooter className="pt-2 pb-4">
-               <Button className="button-primary w-full" onClick="window.open('https://tinyurl.com/dussehra2025'">
-                                  Register for this Event
+                <Button
+                  className="button-primary w-full"
+                  onClick={() => window.open("https://tinyurl.com/dussehra2025", "_blank")}
+                >
+                  Register for this Event
                 </Button>
               </CardFooter>
             </Card>
