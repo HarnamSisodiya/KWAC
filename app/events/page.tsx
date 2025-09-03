@@ -36,7 +36,7 @@ export default function Events() {
     // For Maharana Pratap Jayanti - email registration
     //handleEmailRegister("Maharana Pratap Jayanti")
     alert("It is past event")
-  }
+  } 
 
   const handlePicnicRegistration = () => {
     // For Annual KWAC Picnic - email registration
