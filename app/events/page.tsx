@@ -63,7 +63,7 @@ export default function Events() {
       title: "Vijay Dashmi Shastra Pujan with KWAC!",
       date: "Oct 4, 2025",
       description:
-        "Join us on October 4th as we come together for the auspicious Shastra Pujan ceremony to honor our traditions and values. Let us celebrate this meaningful occasion with devotion, unity, and pride. All members of the KWAC community are welcome! After registration, please e-Transfer money to KWAFUND@gmail.com mentioning your name, mobile and email ID",
+        "Join us on October 4th as we come together for the auspicious Shastra Pujan ceremony to honor our traditions and values. Let us celebrate this meaningful occasion with devotion, unity, and pride. All members of the KWAC community are welcome! <B>After registration</b>, please e-Transfer money to KWAFUND@gmail.com mentioning your name, mobile and email ID.",
       onRegister: handleVijayDashmiRegistration,
     },
   ]
