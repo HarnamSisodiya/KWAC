@@ -34,12 +34,14 @@ export default function Events() {
 
   const handleMaharanaPratapRegistration = () => {
     // For Maharana Pratap Jayanti - email registration
-    handleEmailRegister("Maharana Pratap Jayanti")
+    //handleEmailRegister("Maharana Pratap Jayanti")
+    alert("It is past event")
   }
 
   const handlePicnicRegistration = () => {
     // For Annual KWAC Picnic - email registration
-    handleEmailRegister("Annual KWAC Picnic!")
+    //handleEmailRegister("Annual KWAC Picnic!")
+    alert("It is past event")
   }
 
   const handleVijayDashmiRegistration = () => {
