@@ -18,10 +18,10 @@ export default function Events() {
             variant="outline"
             size="sm"
             className="mt-2 flex items-center gap-2 bg-transparent"
-            onClick={() =>
-              (window.location.href =
-                "mailto:KWAOfCanada@gmail.com?subject=Registration for " + encodeURIComponent(eventTitle))
-            }
+            onClick={() => {
+              window.location.href =
+                "mailto:KWAOfCanada@gmail.com?subject=Registration for " + encodeURIComponent(eventTitle)
+            }}
           >
             <Mail className="h-4 w-4" />
             Send Email
@@ -33,19 +33,14 @@ export default function Events() {
   }
 
   const handleMaharanaPratapRegistration = () => {
-    // For Maharana Pratap Jayanti - email registration
-    // handleEmailRegister("Maharana Pratap Jayanti")
     alert("It is past event")
   }
 
   const handlePicnicRegistration = () => {
-    // For Annual KWAC Picnic - email registration
-    // handleEmailRegister("Annual KWAC Picnic!")
     alert("It is past event")
   }
 
   const handleVijayDashmiRegistration = () => {
-    // For Vijay Dashmi - external link registration
     window.open("https://tinyurl.com/dussehra2025", "_blank")
   }
 
