@@ -19,7 +19,7 @@ export default function CommunityBusiness() {
   const [sortBy, setSortBy] = useState<SortOption>("type-name")
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc")
 
-  // Load businesses on component mount directly from the service
+  // Load businesses on component mount
   useEffect(() => {
     const loadedBusinesses = getBusinesses()
     // Apply default sorting by type then name
@@ -27,10 +27,17 @@ export default function CommunityBusiness() {
     setBusinesses(sortedBusinesses)
   }, [])
 
-  // Re-sort when sort options change
-  useEffect(() => {
+  // Handle sorting when sort options change
+  const handleSort = () => {
     const sortedBusinesses = sortBusinesses(businesses, sortBy, sortDirection)
     setBusinesses(sortedBusinesses)
+  }
+
+  // Re-sort when sort options change
+  useEffect(() => {
+    if (businesses.length > 0) {
+      handleSort()
+    }
   }, [sortBy, sortDirection])
 
   // Get unique business types for the filter, sorted alphabetically
