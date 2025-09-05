@@ -268,6 +268,20 @@ const initialBusinesses: Business[] = [
     website: "wwww.netechcabling.ca",
     owner: "Mahideepsinh Zala",
   },
+  {
+    id: 19,
+    name: "Villa Furniture & Mattress",
+    type: "Retail - Furniture",
+    description: "Residential & Commercial Furniture & Mattress.",
+    address: "17 - 134 Kennedy Rd. S ",
+    city: "Brampton",
+    province: "ON",
+    postalCode: "",
+    phone: "905-451-8786",
+    email: "",
+    website: "",
+    owner: "Dheerendra Singh Bhadoria",
+  },
 ]
 
 // Get all businesses - always returns the static data defined in the file
