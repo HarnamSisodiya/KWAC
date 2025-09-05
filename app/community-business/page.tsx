@@ -9,21 +9,29 @@ import { Download, MapPin, Phone, Mail, Building, Globe, ArrowUp, ArrowDown } fr
 import { getBusinesses, sortBusinesses, type Business } from "@/app/services/business-service"
 import { toast } from "@/hooks/use-toast"
 
+type SortOption = "name" | "type" | "type-name"
+
 export default function CommunityBusiness() {
   const [businesses, setBusinesses] = useState<Business[]>([])
   const [searchTerm, setSearchTerm] = useState("")
   const [filterType, setFilterType] = useState("all")
   const [filterCity, setFilterCity] = useState("all")
-  const [sortField, setSortField] = useState<keyof Business>("type,name")
+  const [sortBy, setSortBy] = useState<SortOption>("type-name")
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc")
 
   // Load businesses on component mount directly from the service
   useEffect(() => {
     const loadedBusinesses = getBusinesses()
-    // Apply default sorting by name
-    const sortedBusinesses = sortBusinesses(loadedBusinesses, "type, name", "asc")
+    // Apply default sorting by type then name
+    const sortedBusinesses = sortBusinesses(loadedBusinesses, "type-name", "asc")
     setBusinesses(sortedBusinesses)
   }, [])
+
+  // Re-sort when sort options change
+  useEffect(() => {
+    const sortedBusinesses = sortBusinesses(businesses, sortBy, sortDirection)
+    setBusinesses(sortedBusinesses)
+  }, [sortBy, sortDirection])
 
   // Get unique business types for the filter, sorted alphabetically
   const businessTypes = [...new Set(businesses.map((b) => b.type))].sort()
@@ -40,11 +48,22 @@ export default function CommunityBusiness() {
       (filterCity === "all" || business.city === filterCity),
   )
 
-  const handleSort = () => {
+  const handleSortDirectionToggle = () => {
     const newDirection = sortDirection === "asc" ? "desc" : "asc"
     setSortDirection(newDirection)
-    const sortedBusinesses = sortBusinesses(businesses, sortField, newDirection)
-    setBusinesses(sortedBusinesses)
+  }
+
+  const getSortButtonText = () => {
+    switch (sortBy) {
+      case "name":
+        return "Name"
+      case "type":
+        return "Type"
+      case "type-name":
+        return "Type & Name"
+      default:
+        return "Sort"
+    }
   }
 
   const handleExport = (format: "excel") => {
@@ -164,10 +183,23 @@ export default function CommunityBusiness() {
 
         {/* Sort and Export buttons - Second row */}
         <div className="flex flex-col sm:flex-row gap-4">
-          <Button onClick={handleSort} variant="outline" className="glass-card">
-            Sort By: Name{" "}
-            {sortDirection === "asc" ? <ArrowUp className="ml-1 h-4 w-4" /> : <ArrowDown className="ml-1 h-4 w-4" />}
-          </Button>
+          <div className="flex gap-2">
+            <Select value={sortBy} onValueChange={(value) => setSortBy(value as SortOption)}>
+              <SelectTrigger className="glass-card w-[140px]">
+                <SelectValue placeholder="Sort by" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="type-name">Type & Name</SelectItem>
+                <SelectItem value="name">Name</SelectItem>
+                <SelectItem value="type">Type</SelectItem>
+              </SelectContent>
+            </Select>
+
+            <Button onClick={handleSortDirectionToggle} variant="outline" className="glass-card bg-transparent">
+              {getSortButtonText()}{" "}
+              {sortDirection === "asc" ? <ArrowUp className="ml-1 h-4 w-4" /> : <ArrowDown className="ml-1 h-4 w-4" />}
+            </Button>
+          </div>
 
           <Button onClick={() => handleExport("excel")} className="button-primary">
             <Download className="mr-2 h-4 w-4" /> Export to Excel

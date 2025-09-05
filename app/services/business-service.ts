@@ -265,7 +265,7 @@ const initialBusinesses: Business[] = [
     postalCode: "",
     phone: "647-707-7570",
     email: "",
-    website: "wwww.netechcabling.ca",
+    website: "www.netechcabling.ca",
     owner: "Mahideepsinh Zala",
   },
   {
@@ -310,7 +310,7 @@ const initialBusinesses: Business[] = [
     website: "",
     owner: "Paritosh Bhada",
   },
-   {
+  {
     id: 22,
     name: "Homelife Silvercity Realty Inc",
     type: "Realtor",
@@ -345,16 +345,29 @@ export function getBusinesses(): Business[] {
   return initialBusinesses
 }
 
-// Sort businesses by field and direction
-export function sortBusinesses(businesses: Business[], field: keyof Business, direction: "asc" | "desc"): Business[] {
+// Sort businesses by field and direction with support for multiple fields
+export function sortBusinesses(
+  businesses: Business[],
+  sortBy: "name" | "type" | "type-name",
+  direction: "asc" | "desc",
+): Business[] {
   return [...businesses].sort((a, b) => {
-    const valueA = a[field] || ""
-    const valueB = b[field] || ""
+    if (sortBy === "type-name") {
+      // First sort by type, then by name
+      const typeComparison = direction === "asc" ? a.type.localeCompare(b.type) : b.type.localeCompare(a.type)
 
-    if (typeof valueA === "string" && typeof valueB === "string") {
-      return direction === "asc" ? valueA.localeCompare(valueB) : valueB.localeCompare(valueA)
+      if (typeComparison !== 0) {
+        return typeComparison
+      }
+
+      // If types are the same, sort by name
+      return direction === "asc" ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name)
+    } else {
+      // Single field sorting
+      const fieldA = a[sortBy] || ""
+      const fieldB = b[sortBy] || ""
+
+      return direction === "asc" ? fieldA.localeCompare(fieldB) : fieldB.localeCompare(fieldA)
     }
-
-    return 0
   })
 }
