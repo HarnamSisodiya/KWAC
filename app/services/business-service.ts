@@ -254,6 +254,20 @@ const initialBusinesses: Business[] = [
     website: "www.theUpsStore.ca/167",
     owner: "Rajdeep Rana",
   },
+  {
+    id: 18,
+    name: "NETECH CABLING INC",
+    type: "Retail - Tech",
+    description: "Fiber optics, data center,Cable management, VOIP Solutions, IT Consulting.",
+    address: "14 Automatic Road unit#40 ",
+    city: "Brampton",
+    province: "ON",
+    postalCode: "",
+    phone: "647-707-7570",
+    email: "",
+    website: "wwww.netechcabling.ca",
+    owner: "Mahideepsinh Zala",
+  },
 ]
 
 // Get all businesses - always returns the static data defined in the file
