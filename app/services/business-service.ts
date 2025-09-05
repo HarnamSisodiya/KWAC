@@ -243,7 +243,7 @@ const initialBusinesses: Business[] = [
   {
     id: 17,
     name: "The UPS Store",
-    type: "Shipping",
+    type: "Shipping / printing",
     description: "Mail, courier, office supplies, packaging services.",
     address: "6 - 295 Queen Street East",
     city: "Brampton",
@@ -252,7 +252,7 @@ const initialBusinesses: Business[] = [
     phone: "(905) 453-4789",
     email: "Store167@theUpsStore.CA",
     website: "www.theUpsStore.ca/167",
-    owner: "Rajdeep Rana",
+    owner: "Rajdeep S Rana   ",
   },
   {
     id: 18,
