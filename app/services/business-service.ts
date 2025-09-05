@@ -238,12 +238,12 @@ const initialBusinesses: Business[] = [
     phone: "(647) 895-0386",
     email: "RajenderSingh_Rathore@yahoo.com",
     website: "www.RathoreHomes.ca",
-    owner: "Paritosh Bhada",
+    owner: "Rajender S Rathore",
   },
   {
     id: 17,
     name: "The UPS Store",
-    type: "Shipping",
+    type: "Shipping / printing",
     description: "Mail, courier, office supplies, packaging services.",
     address: "6 - 295 Queen Street East",
     city: "Brampton",
@@ -252,7 +252,91 @@ const initialBusinesses: Business[] = [
     phone: "(905) 453-4789",
     email: "Store167@theUpsStore.CA",
     website: "www.theUpsStore.ca/167",
-    owner: "Rajdeep Rana",
+    owner: "Rajdeep S Rana   ",
+  },
+  {
+    id: 18,
+    name: "NETECH CABLING INC",
+    type: "Retail - Tech",
+    description: "Fiber optics, data center,Cable management, VOIP Solutions, IT Consulting.",
+    address: "14 Automatic Road unit#40 ",
+    city: "Brampton",
+    province: "ON",
+    postalCode: "",
+    phone: "647-707-7570",
+    email: "",
+    website: "www.netechcabling.ca",
+    owner: "Mahideepsinh Zala",
+  },
+  {
+    id: 19,
+    name: "Villa Furniture & Mattress",
+    type: "Retail - Furniture",
+    description: "Residential & Commercial Furniture & Mattress.",
+    address: "17 - 134 Kennedy Rd. S ",
+    city: "Brampton",
+    province: "ON",
+    postalCode: "",
+    phone: "905-451-8786",
+    email: "",
+    website: "",
+    owner: "Dheerendra Singh Bhadoria",
+  },
+  {
+    id: 20,
+    name: "Rising Star Realty Ltd. ",
+    type: "Realtor / brokerage",
+    description: "Buying, Selling, Invest in Real Estate.",
+    address: "",
+    city: "Mississauga",
+    province: "ON",
+    postalCode: "",
+    phone: "(647) 568-4636",
+    email: "SandeepTanwar4247@Gmail.com",
+    website: "",
+    owner: "Sandeep S Tanwar",
+  },
+  {
+    id: 21,
+    name: "Century 21 ",
+    type: "Realtor",
+    description: "Buying, Selling, Invest in Real Estate.",
+    address: "7461 Pacific Circle",
+    city: "Mississauga",
+    province: "ON",
+    postalCode: "",
+    phone: "(647) 241-2227",
+    email: "PBhada@yahoo.com",
+    website: "",
+    owner: "Paritosh Bhada",
+  },
+  {
+    id: 22,
+    name: "Homelife Silvercity Realty Inc",
+    type: "Realtor",
+    description: "Buying, Selling, Invest in Real Estate.",
+    address: "50 Cotterelle Blvd, Unit# 29",
+    city: "Brampton",
+    province: "ON",
+    postalCode: "",
+    phone: "416-602-3725 / 905-913-8500",
+    email: "SSRR2001@Hotmail.com",
+    website: "",
+    owner: "Suman Kanwar",
+  },
+  {
+    id: 23,
+    name: "REVEL Realty Inc.",
+    type: "Realtor",
+    description: "Niagara region - Buying, Selling, Invest in Real Estate.",
+    address: "8685 Lundy's Lane , Unit 1",
+    city: "Niagara Falls",
+    province: "ON",
+    postalCode: "L2H 1H5",
+    phone: "289-968-5806",
+    email: "RealEstateWithNisha@@gmail.com",
+    website: "",
+    owner: "Nisha Parihar",
   },
 ]
 
@@ -261,16 +345,29 @@ export function getBusinesses(): Business[] {
   return initialBusinesses
 }
 
-// Sort businesses by field and direction
-export function sortBusinesses(businesses: Business[], field: keyof Business, direction: "asc" | "desc"): Business[] {
+// Sort businesses by field and direction with support for multiple fields
+export function sortBusinesses(
+  businesses: Business[],
+  sortBy: "name" | "type" | "type-name",
+  direction: "asc" | "desc",
+): Business[] {
   return [...businesses].sort((a, b) => {
-    const valueA = a[field] || ""
-    const valueB = b[field] || ""
+    if (sortBy === "type-name") {
+      // First sort by type, then by name
+      const typeComparison = direction === "asc" ? a.type.localeCompare(b.type) : b.type.localeCompare(a.type)
 
-    if (typeof valueA === "string" && typeof valueB === "string") {
-      return direction === "asc" ? valueA.localeCompare(valueB) : valueB.localeCompare(valueA)
+      if (typeComparison !== 0) {
+        return typeComparison
+      }
+
+      // If types are the same, sort by name
+      return direction === "asc" ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name)
+    } else {
+      // Single field sorting
+      const fieldA = a[sortBy] || ""
+      const fieldB = b[sortBy] || ""
+
+      return direction === "asc" ? fieldA.localeCompare(fieldB) : fieldB.localeCompare(fieldA)
     }
-
-    return 0
   })
 }
