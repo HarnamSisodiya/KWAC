@@ -14,14 +14,14 @@ export default function CommunityBusiness() {
   const [searchTerm, setSearchTerm] = useState("")
   const [filterType, setFilterType] = useState("all")
   const [filterCity, setFilterCity] = useState("all")
-  const [sortField, setSortField] = useState<keyof Business>("name")
+  const [sortField, setSortField] = useState<keyof Business>("type,name")
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc")
 
   // Load businesses on component mount directly from the service
   useEffect(() => {
     const loadedBusinesses = getBusinesses()
     // Apply default sorting by name
-    const sortedBusinesses = sortBusinesses(loadedBusinesses, "name", "asc")
+    const sortedBusinesses = sortBusinesses(loadedBusinesses, "type, name", "asc")
     setBusinesses(sortedBusinesses)
   }, [])
 
