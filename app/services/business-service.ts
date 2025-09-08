@@ -338,6 +338,20 @@ const initialBusinesses: Business[] = [
     website: "",
     owner: "Nisha Parihar",
   },
+    {
+    id: 24,
+    name: "Insurances, Mortagage and Investment Services",
+    type: "Insurance",
+    description: " Life, Critical illness, Disability, Travel, Supervisa insurance, Extended health care benefits Investment- esp, Rrsp, Tfsa, Fhsa Mortgage, Will , Estate planning",
+    address: "218 - 2550 Argentia Road",
+    city: "Mississauga",
+    province: "ON",
+    postalCode: "L5N5R1",
+    phone: "778-798-4014",
+    email: "vivekkumarsinghbd@gmail.com",
+    website: "agents.wfgcanada.ca/vivek-singh",
+    owner: "Vivek Kumar Singh",
+  },
 ]
 
 // Get all businesses - always returns the static data defined in the file
