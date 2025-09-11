@@ -342,7 +342,7 @@ const initialBusinesses: Business[] = [
     id: 24,
     name: "Insurances, Mortgage and Investment Services",
     type: "Insurance",
-    description: " Life, Critical illness, Disability, Travel, Supervisa insurance, Extended health care benefits Investment- esp, Rrsp, Tfsa, Fhsa Mortgage, Will , Estate planning",
+    description: " Life, Critical illness, Disability, Travel, Supervisa insurance, Extended health care benefits Investment- RESP, RRSP, TFSA, FHSA Mortgage, Will , Estate planning",
     address: "218 - 2550 Argentia Road",
     city: "Mississauga",
     province: "ON",
