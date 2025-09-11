@@ -352,6 +352,20 @@ const initialBusinesses: Business[] = [
     website: "agents.wfgcanada.ca/vivek-singh",
     owner: "Vivek Kumar Singh",
   },
+   {
+    id: 25,
+    name: "Vivek Jadon, Realtor",
+    type: "Realtor",
+    description: "Buying, Selling, Leasing, Invest in Real Estate.",
+    address: "224 Rivermont Road",
+    city: "Brampton",
+    province: "ON",
+    postalCode: "L6Y 6C9",
+    phone: "(647) 208-3704",
+    email: "vivekjadonrealtor@gmail.com",
+    website: "http://vivek-jadon.c21.ca",
+    owner: "Vivek S Jadon",
+  },
 ]
 
 // Get all businesses - always returns the static data defined in the file
