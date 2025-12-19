@@ -173,7 +173,7 @@ const initialBusinesses: Business[] = [
   {
     id: 12,
     name: "Insurance & Financial Advisor",
-    type: "Insurance",
+    type: "Insurance & Investment",
     description: "Life, Critical Illness, Disability, Mortgage & Visitor Insurance, RRSP, RESP.",
     address: "7003 Steel Ave West, #10",
     city: "Brampton",
@@ -341,7 +341,7 @@ const initialBusinesses: Business[] = [
     {
     id: 24,
     name: "Insurances, Mortgage and Investment Services",
-    type: "Insurance",
+    type: "Insurance & Investment",
     description: " Life, Critical illness, Disability, Travel, Supervisa insurance, Extended health care benefits Investment- RESP, RRSP, TFSA, FHSA Mortgage, Will , Estate planning",
     address: "218 - 2550 Argentia Road",
     city: "Mississauga",
@@ -365,6 +365,20 @@ const initialBusinesses: Business[] = [
     email: "vivekjadonrealtor@gmail.com",
     website: "http://vivek-jadon.c21.ca",
     owner: "Vivek S Jadon",
+  },
+  {
+    id: 25,
+    name: "Experior Financial Group, Insurance & Investment",
+    type: "Insurance & Investment",
+    description: "BLife, Critical illness, Disability, Travel, Supervisa insurance, Extended health care benefits Investment- RESP, RRSP, TFSA, FHSA Mortgage, Will , Estate planning",
+    address: "56 Proctor Ave",
+    city: "Brantford",
+    province: "ON",
+    postalCode: "",
+    phone: "(639) 997-7030 ",
+    email: "Gbj2367@gmail.com",
+    website: "http://vivek-jadon.c21.ca",
+    owner: "Ghanshyamsinh Jadeja",
   },
 ]
 
