@@ -338,7 +338,7 @@ const initialBusinesses: Business[] = [
     website: "",
     owner: "Nisha Parihar",
   },
-    {
+  {
     id: 24,
     name: "Insurances, Mortgage and Investment Services",
     type: "Insurance & Investment",
@@ -352,7 +352,7 @@ const initialBusinesses: Business[] = [
     website: "agents.wfgcanada.ca/vivek-singh",
     owner: "Vivek Kumar Singh",
   },
-   {
+  {
     id: 25,
     name: "Vivek Jadon, Realtor",
     type: "Realtor",
@@ -367,7 +367,7 @@ const initialBusinesses: Business[] = [
     owner: "Vivek S Jadon",
   },
   {
-    id: 25,
+    id: 26,
     name: "Experior Financial Group, Insurance & Investment",
     type: "Insurance & Investment",
     description: "BLife, Critical illness, Disability, Travel, Supervisa insurance, Extended health care benefits Investment- RESP, RRSP, TFSA, FHSA Mortgage, Will , Estate planning",
@@ -379,6 +379,20 @@ const initialBusinesses: Business[] = [
     email: "Gbj2367@gmail.com",
     website: "http://vivek-jadon.c21.ca",
     owner: "Ghanshyamsinh Jadeja",
+  },
+  {
+    id: 27,
+    name: "Transcend Movers",
+    type: "Transport",
+    description: "Movers - We provide moving services, Packing Services, Secure Storage, Plastic Bin Rental",
+    address: "14 Natronia Trail",
+    city: "Brampton",
+    province: "ON",
+    postalCode: "L6P 3N1",
+    phone: "(647) 833-8587 / (647) 562-2938 ",
+    email: "info@transcendmovers.com",
+    website: "https://transcendmovers.com/",
+    owner: "Preetam Singh Rathore",
   },
 ]
 
